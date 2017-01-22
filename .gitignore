@@ -1,0 +1,20 @@
+#virtual env
+flask_env
+
+
+#packages
+
+
+#nodes libs
+node_modules
+
+
+#local db
+*.sqlite
+app/static
+
+#test
+
+#log
+
+migrations

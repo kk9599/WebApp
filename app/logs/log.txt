@@ -1,0 +1,5 @@
+// template logging file
+
+email create :
+export mail_username = "your username"
+export mail_password = "your password"
