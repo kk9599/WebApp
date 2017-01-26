@@ -14,7 +14,10 @@ node_modules
 app/static
 
 #test
+tests
 
 #log
+.idea
+__pycache__
 
-migrations
+#migrations
