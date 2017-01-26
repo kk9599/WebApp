@@ -39,7 +39,7 @@ module.exports = {
             {
                 test: /\.(jpg|jpeg|gif|png)$/,
                 exclude: /node_modules/,
-                loader: 'url-loader?limit=1024&name=../images/[name].[ext]'
+                loader: 'url-loader?limit=1024&name=../img/[name].[ext]'
 
             },
         ]
