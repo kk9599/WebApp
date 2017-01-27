@@ -3,7 +3,7 @@ flask_env
 
 
 #packages
-
+*.pyc
 
 #nodes libs
 node_modules
@@ -14,7 +14,10 @@ node_modules
 app/static
 
 #test
+tests
 
 #log
+.idea
+__pycache__
 
-migrations
+#migrations
