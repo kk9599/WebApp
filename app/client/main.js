@@ -4,6 +4,7 @@
 * import 'bootstrap/dist/css/bootstrap.min.css'
 * */
 import 'jquery/dist/jquery.slim.min.js'
+
 import 'font-awesome/css/font-awesome.css'
 
 
@@ -35,6 +36,12 @@ Vue.use(VueRouter)
 import store from './vuex/store.js'
 
 
+/*
+* Element UI
+* */
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+Vue.use(ElementUI)
 
 let app = require('./App.vue')
 //app.router = new VueRouter(routers)

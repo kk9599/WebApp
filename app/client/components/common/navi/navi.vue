@@ -1,54 +1,28 @@
 <template>
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Project name</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                        <li><a href="../navbar-static-top/">Static top</a></li>
-                        <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div><!--/.container-fluid -->
-        </nav>
-
-
+    <div>
+        <el-menu theme="dark" default-active="1" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-menu-item index="1">处理中心</el-menu-item>
+            <el-submenu index="2">
+                <template slot="title">我的工作台</template>
+                <el-menu-item index="2-1">选项1</el-menu-item>
+                <el-menu-item index="2-2">选项2</el-menu-item>
+                <el-menu-item index="2-3">选项3</el-menu-item>
+            </el-submenu>
+            <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+        </el-menu>
+        <img src="/img/download.jpg">
+    </div>
 </template>
+
 
 <script>
     export default {
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            }
 
 
-
-
+        }
     }
-
 </script>

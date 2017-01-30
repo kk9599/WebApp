@@ -1,8 +1,20 @@
+/*
+ * {
+ test: /\.(woff|woff2|eot|ttf|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+ loader: "url-loader?limit=10000&minetype=application/font-woff&name=../css/[hash].[ext]"
+ },
+ *
+ * */
+
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var webpack = require("webpack");
 module.exports = {
     // This is the "main" file which should include all other modules
-    entry: './client/main.js',
+    entry: {
+        app: './client/main.js',
+        vendors: ['vue', 'vue-router', 'element-ui']
+    },
+
     // Where should the compiled file go?
     output: {
         library: '',
@@ -33,8 +45,8 @@ module.exports = {
                 loader: ExtractTextPlugin.extract('css!sass')
             },
             {
-                test: /\.(woff|woff2|eot|ttf|svg)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "url-loader?limit=10000&minetype=application/font-woff&name=../css/[hash].[ext]"
+                test: /\.(eot|svg|ttf|woff|woff2|png)\w*/,
+                loader: 'url-loader?limit=10000&minetype=application/font-woff&name=../css/[hash].[ext]'
             },
             {
                 test: /\.(jpg|jpeg|gif|png)$/,
@@ -45,6 +57,7 @@ module.exports = {
         ]
     },
     vue: {
+
         loaders: {
             js: 'babel',
             css: ExtractTextPlugin.extract("css"),
@@ -56,6 +69,7 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin("../css/style.css"),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
         new webpack.ProvidePlugin({
             jQuery: 'jquery',
             $: 'jquery',
