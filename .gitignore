@@ -1,10 +1,6 @@
 #virtual env
 flask_env
 
-
-#packages
-*.pyc
-
 #nodes libs
 node_modules
 
