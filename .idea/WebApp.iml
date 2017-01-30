@@ -5,13 +5,17 @@
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.4.2 virtualenv at E:\python_workspace\WebApp\flask_env" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="vue-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="vue-resource-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="vue-router-DefinitelyTyped" level="application" />
   </component>
+  <component name="PyDocumentationSettings">
+    <option name="myDocStringFormat" value="Google" />
+  </component>
   <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/app/templates" />
@@ -19,6 +23,7 @@
     </option>
   </component>
   <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+    <option name="projectConfiguration" value="py.test" />
+    <option name="PROJECT_TEST_RUNNER" value="py.test" />
   </component>
 </module>

@@ -1,10 +1,11 @@
 /*
 * Bootstrap and frontAwesome
+* import 'bootstrap/dist/js/bootstrap.min.js'
+* import 'bootstrap/dist/css/bootstrap.min.css'
 * */
 import 'jquery/dist/jquery.slim.min.js'
-import 'bootstrap/dist/js/bootstrap.min.js'
 import 'font-awesome/css/font-awesome.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 
 

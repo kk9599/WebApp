@@ -8,6 +8,10 @@ flask_env
 #nodes libs
 node_modules
 
+#static file
+*.png
+client/assets
+client/tests
 
 #local db
 *.sqlite
