@@ -7,7 +7,7 @@ from app.models.Models import User
 from .forms import *
 from ..email import send_email
 from flask import request
-import requests
+
 import json
 
 @auth.route('/login', methods=['GET','POST'])
