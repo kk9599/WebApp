@@ -17,8 +17,20 @@ def login():
 
 
 
-@auth.route('/register', methods=['GET','POST'])
+@auth.route('/register', methods=['POST'])
 def register():
-    data = request.get_json()
+    data = request.get_json(force=True)
+    new_user = User.create(json=data)
 
-    return data
+    return jsonify(data)
+
+
+
+# @api.errorhandler(user.ValidationError)
+# def handle_user_validation_error(error):
+#     response = jsonify({
+#         'msg': error.message,
+#         'type': 'validation',
+#         'field': error.field })
+#     response.status_code = 400
+#     return response

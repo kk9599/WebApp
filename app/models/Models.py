@@ -266,6 +266,10 @@ class User(UserMixin,db.Model):
             return None
         return User.query.get(data['id'])
 
+    @staticmethod
+    def verify_user_format(input):
+        pass
+
     def __repr__(self):
         return '<User %r>' % self.username
 

@@ -1,16 +1,23 @@
 <template>
     <div>
         <headers></headers>
-        <navi></navi>
-        <div class="main">
-            <counter></counter>
-            <router-view></router-view>
-        </div>
+        <el-row>
+            <el-col :span="4">
+                <navi></navi>
+            </el-col>
+            <el-col :span="20">
+                <div class="main">
+                    <counter></counter>
+                    <router-view></router-view>
+                </div>
+            </el-col>
+
+        </el-row>
     </div>
 </template>
 
 <style lang="sass" scoped>
-    $primary-color: #333;
+     $primary-color: #333 ;
 
     h1 {
 
@@ -36,9 +43,9 @@
             }
         },
         components: {
-           counter: counter,
-           navi: navi,
-           headers: headers
+            counter: counter,
+            navi: navi,
+            headers: headers
 
         },
         computed: {}
