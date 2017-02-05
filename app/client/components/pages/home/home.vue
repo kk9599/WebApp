@@ -1,6 +1,6 @@
 <template>
 
-    <p>this is home</p>
+
     <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
         <el-form-item label="Password" prop="pass">
             <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
@@ -15,6 +15,7 @@
             <el-button type="primary" @click="submitForm('ruleForm2')">Submit</el-button>
             <el-button @click="resetForm('ruleForm2')">Reset</el-button>
         </el-form-item>
+         <p>this is home</p>
     </el-form>
 </template>
 
