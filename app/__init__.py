@@ -3,7 +3,7 @@ from config import config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
-
+import logging
 
 import os
 basedir = os.path.abspath(os.path.dirname("__file__"))
