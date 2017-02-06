@@ -47,6 +47,8 @@ class Role(db.Model):
             db.session.add(role)
         db.session.commit()
 
+
+
     def __repr__(self):
         return '<Role %r>' % self.name
 
@@ -102,7 +104,7 @@ class User(UserMixin,db.Model):
                      name=forgery_py.name.full_name(),
                      location=forgery_py.address.city(),
                      about_me=forgery_py.lorem_ipsum.sentence(),
-                     member_since=forgery_py.date.date(True))
+                     member_since=forgery_py.date.date())
             db.session.add(u)
             try:
                 db.session.commit()
@@ -270,6 +272,30 @@ class User(UserMixin,db.Model):
     def verify_user_format(input):
         pass
 
+    @staticmethod
+    def create(data):
+        from sqlalchemy.exc import IntegrityError
+        import forgery_py as fake
+
+        new_user = User(email=data['email'],
+                        username=data['username'],
+                        password=data['password'],
+                        name = fake.name.full_name(),
+                        location = fake.address.city(),
+                        about_me = fake.lorem_ipsum.sentence(),
+                        member_since = fake.date.date()
+                        )
+        db.session.add(new_user)
+
+
+        try:
+            db.session.commit()
+
+
+        except IntegrityError:
+            db.session.rollback()
+
+
     def __repr__(self):
         return '<User %r>' % self.username
 
@@ -302,14 +328,14 @@ class Post(db.Model):
     @staticmethod
     def generate_fake(count=100):
         from random import seed, randint
-        import forgery_py
+        import forgery_py as fake
 
         seed()
         user_count = User.query.count()
         for i in range(count):
             u = User.query.offset(randint(0, user_count - 1)).first()
-            p = Post(body=forgery_py.lorem_ipsum.sentences(randint(1, 5)),
-                     timestamp=forgery_py.date.date(True),
+            p = Post(body=fake.lorem_ipsum.sentences(randint(1, 5)),
+                     timestamp=fake.date.date(True),
                      author=u)
             db.session.add(p)
             db.session.commit()

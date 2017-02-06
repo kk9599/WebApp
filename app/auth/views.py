@@ -1,4 +1,4 @@
-from flask import render_template, redirect, request, url_for, flash, jsonify
+from flask import render_template, redirect, request, url_for, flash, jsonify,session
 from flask_login import login_user, logout_user, login_required, \
     current_user
 from . import auth
@@ -20,9 +20,10 @@ def login():
 @auth.route('/register', methods=['POST'])
 def register():
     data = request.get_json(force=True)
-    new_user = User.create(json=data)
+    new_user = User.create(data)
+    session['id'] = hash(new_user['id'])
 
-    return jsonify(data)
+    return data['username']
 
 
 
