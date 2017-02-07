@@ -7,7 +7,8 @@ from markdown import markdown
 import bleach
 from flask import current_app, request, url_for
 from flask_login import UserMixin, AnonymousUserMixin
-
+from flask_validator import ValidateString, ValidateRegex
+from sqlalchemy import *
 
 class Permission:
     FOLLOW = 0x01
@@ -99,7 +100,7 @@ class User(UserMixin,db.Model):
         for i in range(count):
             u = User(email=forgery_py.internet.email_address(),
                      username=forgery_py.internet.user_name(True),
-                     password=forgery_py.lorem_ipsum.word(),
+                     password='cat',
                      confirmed=True,
                      name=forgery_py.name.full_name(),
                      location=forgery_py.address.city(),
@@ -268,9 +269,7 @@ class User(UserMixin,db.Model):
             return None
         return User.query.get(data['id'])
 
-    @staticmethod
-    def verify_user_format(input):
-        pass
+
 
     @staticmethod
     def create(data):
@@ -295,7 +294,13 @@ class User(UserMixin,db.Model):
         except IntegrityError:
             db.session.rollback()
 
+    def dao(self,sql):
+         result=db.engine.execute(sql)
+         return result
 
+    @classmethod
+    def __declare_last__(cls):
+         pass
     def __repr__(self):
         return '<User %r>' % self.username
 
